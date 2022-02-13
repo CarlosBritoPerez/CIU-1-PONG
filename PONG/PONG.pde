@@ -1,4 +1,6 @@
 import processing.sound.*;
+import gifAnimation.*;
+
 
 int D=20;
 
@@ -29,6 +31,9 @@ SoundFile  sonido;
 SoundFile  music;
 SoundFile  sound2;
 
+GifMaker gif;
+int gifCount = 0;
+
 
 
 void setup(){
@@ -37,6 +42,20 @@ void setup(){
   music = new SoundFile(this,"Casio-MT-45-Disco.wav");
   sound2 = new SoundFile(this,"Casio-CZ-5000-Synth-Bass-C1.wav");
   thread("music");
+  
+  gif = new GifMaker(this, "pong.gif");
+  gif.setRepeat(0);
+}
+
+void gif(){
+  if(gifCount % 5 == 0 ){
+    gif.addFrame();
+    
+  }
+  if(gifCount > 1000){
+     gif.finish(); 
+  }
+  gifCount++;
 }
 
 void score(){ 
@@ -63,6 +82,7 @@ void draw(){
       victory();
       break;
   }
+  gif();
 }
 
 void intro(){
@@ -122,9 +142,13 @@ void victory(){
 void keyPressed() {
   if (key == CODED) {
     if (keyCode == UP) {
-      player2Y = player2Y -20;
+      if(player2Y > 0){
+        player2Y = player2Y -20;
+      }
     } else if (keyCode == DOWN) {
-      player2Y = player2Y +20;
+      if(player2Y < height - alto){
+        player2Y = player2Y +20;
+      }
     }
   }
    if(key == ENTER){
@@ -139,9 +163,13 @@ void keyPressed() {
   }
   
   if ((key == 'W') || (key == 'w')) {
+    if(player1Y > 0){
       player1Y = player1Y -20;
+    }
   } else  if ((key == 'S') || (key == 's')) {
+    if(player1Y < height - alto){
       player1Y = player1Y +20;
+    }  
   }
 }
 
