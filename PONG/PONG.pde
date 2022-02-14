@@ -82,7 +82,7 @@ void draw(){
       victory();
       break;
   }
-  gif();
+  //gif();
 }
 
 void intro(){
