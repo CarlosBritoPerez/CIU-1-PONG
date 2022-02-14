@@ -27,7 +27,7 @@ For this project I decided to creates different states or menus.
 3. **Pause** - This menu can be accessed by pressing TAB, it will freeze the game until ENTER is pressed.
 4. **Victory** - Whenever a player scores 7 points this menu will triggers and declare that player as the winner. You can return to de Main menu pressing ENTER.
 ### SOUND EFFECTS
-Several sound effects where added. Inclunding a background theme, a bouncing effect and a score sound.
+Several sound effects were added. Inclunding a background theme, a bouncing effect and a score sound.
 ## RESULT
 
 ![pong](https://user-images.githubusercontent.com/72495040/153772698-436de993-1260-4478-be8c-f366018205b7.gif)
